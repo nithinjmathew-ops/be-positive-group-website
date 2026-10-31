@@ -15,9 +15,9 @@ Two tools live in this folder and they both actually run. Use them. Do not
 eyeball this.
 
 ```bash
-python3 humanize.py draft.txt --report        # clean it, show what changed
-python3 detect.py draft.txt                    # score it, five checks
-python3 detect.py before.txt after.txt         # prove the delta
+python3 .claude/skills/ig-human/humanize.py draft.txt --report        # clean it, show what changed
+python3 .claude/skills/ig-human/detect.py draft.txt                    # score it, five checks
+python3 .claude/skills/ig-human/detect.py before.txt after.txt         # prove the delta
 ```
 
 Both read `slop.json`: 154 stock words and phrases with plain-English
@@ -102,9 +102,9 @@ do not tell a user their text is undetectable.
 
 ## Order of operations
 
-1. `humanize.py draft.txt -o clean.txt --report`
+1. `python3 .claude/skills/ig-human/humanize.py draft.txt -o clean.txt --report`
 2. Read the structural flags. Rewrite those lines yourself.
-3. `detect.py draft.txt clean.txt` to show the before and after.
+3. `python3 .claude/skills/ig-human/detect.py draft.txt clean.txt` to show the before and after.
 4. If the verdict is not PASS, fix the weakest check named in the output and go
    again. Two rounds is normal. Five means the draft was written by formula,
    and the fix is a different draft, not more passes.
